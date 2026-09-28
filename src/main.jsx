@@ -1,11 +1,12 @@
 import React,{useState,useEffect,useRef} from "react";
 import {createRoot} from "react-dom/client";
-import {ArrowUpRight,ArrowLeft,ArrowRight,Menu,X,Download,Mail,Phone,MapPin,Ruler,Layers3,Lightbulb,Sofa,Expand} from "lucide-react";
+import {ArrowUpRight,ArrowLeft,ArrowRight,Menu,X,Download,Mail,Phone,MapPin,Linkedin,Ruler,Layers3,Lightbulb,Sofa,Expand} from "lucide-react";
 import Lenis from "lenis";
 import "lenis/dist/lenis.css";
 import "./styles.css";
 
 const asset = path => `${import.meta.env.BASE_URL}${path.replace(/^\//, "")}`;
+const LINKEDIN_URL = "https://www.linkedin.com/in/mubasher-muhammed-297358384";
 const projectGroups=[
  {id:"kitchen",name:"Kitchen",index:"01",intro:"A connected kitchen shaped by warm wood, clean surfaces and carefully placed light.",projects:[
   {title:"Warm Modern Kitchen",kind:"Interior visualization",description:"A series of views exploring the kitchen's island, cooking alcove, breakfast counter and cabinetry. Timber accents and dark window frames bring contrast to the quiet, neutral palette.",images:[
@@ -182,7 +183,10 @@ function App(){
       <h2 className="reveal-on-scroll">Spaces that<br/><em>feel like you.</em></h2>
       <p className="description reveal-on-scroll reveal-delay-1">I’m Muhammed Mubasher, an interior designer creating functional, visually considered residential and commercial spaces.</p>
       <p className="body-copy reveal-on-scroll reveal-delay-2">My work brings together space planning, furniture selection, colour coordination, material specification and 3D visualization. Creative problem-solving, collaboration and understanding client needs guide my design process.</p>
-      <a className="outline-btn cv-download reveal-on-scroll reveal-delay-3" href={asset("Muhammed-Mubasher-CV.pdf")} download="Muhammed-Mubasher-CV.pdf">Download CV <Download size={17}/></a>
+      <div className="about-actions reveal-on-scroll reveal-delay-3">
+       <a className="outline-btn cv-download" href={asset("Muhammed-Mubasher-CV.pdf")} download="Muhammed-Mubasher-CV.pdf">Download CV <Download size={17}/></a>
+       <a className="outline-btn linkedin-btn" href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">LinkedIn <ArrowUpRight size={17}/></a>
+      </div>
       <div className="resume-grid">
        <div className="resume-block reveal-on-scroll"><h3>Design toolkit</h3><ul className="software-tags">{["AutoCAD","SketchUp","3ds Max","Lumion","Adobe Photoshop"].map(tool=><li key={tool}>{tool}</li>)}</ul></div>
        <div className="resume-block reveal-on-scroll reveal-delay-1"><h3>Education</h3><div className="education-item"><strong>Expert Diploma in Interior Design</strong><span>Cadd Centre · Kasaragod, Kerala</span><small>2026</small></div><div className="education-item"><strong>Higher Secondary · Commerce</strong><span>NIOS · Kerala</span><small>2022–2024</small></div><div className="education-item"><strong>SSLC</strong><span>Iqbal Higher Secondary School · Kanhangad, Kerala</span><small>2019</small></div></div>
@@ -243,13 +247,14 @@ function App(){
      <div className="contact-details reveal-on-scroll reveal-delay-2">
       <a href="mailto:mohammedmubasher111@gmail.com"><Mail size={17}/> mohammedmubasher111@gmail.com</a>
       <a href="tel:+919633436731"><Phone size={17}/> +91 96334 36731</a>
+      <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer"><Linkedin size={17}/> LinkedIn</a>
       <span><MapPin size={17}/> Kasaragod, Kerala</span>
       <a href={asset("Muhammed-Mubasher-CV.pdf")} download="Muhammed-Mubasher-CV.pdf"><Download size={18}/> Download CV</a>
      </div>
     </div>
    </section>
   </main>
-  <footer className="reveal-on-scroll"><span>© 2026 MUHAMMED MUBASHER</span><span>INTERIOR DESIGN · SPACE PLANNING · 3D VISUALIZATION</span><button onClick={()=>go("home")}>BACK TO TOP ↑</button></footer>
+  <footer className="reveal-on-scroll"><span>© 2026 MUHAMMED MUBASHER</span><a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="footer-link">LINKEDIN <ArrowUpRight size={11}/></a><span>INTERIOR DESIGN · SPACE PLANNING · 3D VISUALIZATION</span><button onClick={()=>go("home")}>BACK TO TOP ↑</button></footer>
   {viewer&&<div className="viewer" role="dialog" aria-modal="true" aria-label={`${viewer.project.title} image gallery`} onClick={()=>setViewer(null)}>
    <div className="viewer-top"><span>{viewer.project.title}</span><button onClick={()=>setViewer(null)} aria-label="Close gallery"><X size={22}/></button></div>
    <div className="viewer-stage" onClick={e=>e.stopPropagation()}><img src={asset(viewer.project.images[viewer.index].src)} alt={viewer.project.images[viewer.index].alt}/></div>

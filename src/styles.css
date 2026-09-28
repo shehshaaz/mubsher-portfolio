@@ -42,6 +42,12 @@ button:focus-visible,a:focus-visible{outline:2px solid currentColor;outline-offs
 /* Blend the lower edge of the person into the artwork. */
 .original-portrait{-webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 75%,rgba(0,0,0,.8) 86%,transparent 100%);mask-image:linear-gradient(to bottom,#000 0%,#000 75%,rgba(0,0,0,.8) 86%,transparent 100%)}
 .cv-download{display:inline-flex;width:fit-content;min-height:44px}
+.about-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
+.about-actions .outline-btn{margin-top:0}
+.footer-link{display:inline-flex;align-items:center;gap:5px;color:#a4a2ff;transition:color .2s}
+.footer-link:hover{color:#fff}
+.contact-details a{transition:color .2s,opacity .2s}
+.contact-details a:hover{color:#fff}
 .resume-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:28px 34px;margin-top:42px;padding-top:28px;border-top:1px solid rgba(255,255,255,.24)}
 .resume-block{min-width:0}
 .resume-block h3{margin:0 0 16px;font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:white}
